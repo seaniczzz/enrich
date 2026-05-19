@@ -26,7 +26,7 @@ const teamsData = {
             title: "Front-end and Field Technician Manager/Lead", 
             icon: "👨‍💻", 
             level: 2,
-            image: "/images/team/ff.png",
+            image: "/images/team/m.jpg",
             altText: "Front-end Team Lead"
         },
         { 
@@ -39,13 +39,13 @@ const teamsData = {
         }
     ],
     level3: [
-        { 
+        {   
             name: "Rochelle Cecilio", 
             title: "Part-time Virtual Assistant", 
             icon: "👩‍💻", 
             level: 3, 
             parent: "Front-end Team & Field Technician Lead",
-            image: "/images/team/part-time-hva.jpg",
+            image: "/images/team/ro.jpg",
             altText: "Part-time HVA"
         },
         { 
