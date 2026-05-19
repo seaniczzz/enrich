@@ -17,7 +17,7 @@ function loadDashboard() {
 // Open Payslip Spreadsheet
 function openPayslip() {
     // Replace with your actual Google Spreadsheet link
-    window.open('https://docs.google.com/spreadsheets/d/1mBGFIsOWCLXMlSoyWh0CM0OssApNNgLo/edit?usp=sharing&ouid=116934479822756942787&rtpof=true&sd=true', '_blank');
+    window.open('https://docs.google.com/spreadsheets/d/1vo6IM_B82cNrDGtj66-0Ue7kEg-eSpSFKZVm5_HsWTA/edit?usp=sharing', '_blank');
 }
 
 // Open HVA Resources Spreadsheet
