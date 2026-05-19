@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Enrich Advanced Eye Care</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="logo-area">
+                <img src="images/enrich.png" alt="Company Logo" class="company-logo">
+                <div class="company-text">
+                    <h1 class="company-name">Enrich Advanced Eye Care</h1>
+                    <p class="company-subtitle">Employee Dashboard</p>
+                </div>
+            </div>
+            <div class="nav-tabs">
+                <button class="nav-tab active" onclick="navigateTo('dashboard')">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </button>
+                <button class="nav-tab" onclick="navigateTo('teams')">
+                    <i class="fas fa-users"></i>
+                    <span>Team</span>
+                </button>
+                <button class="nav-tab" id="adminNavBtn" style="display:none;" onclick="navigateTo('admin')">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Admin</span>
+                </button>
+            </div>
+            <div class="profile-icon-container" onclick="openProfileModal()">
+                <div class="profile-icon">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Notification Bell -->
+        <div class="notification-container">
+            <div class="notification-bell" onclick="toggleNotificationDropdown()">
+                <i class="fas fa-bell"></i>
+                <span class="notification-badge" id="notificationBadge">0</span>
+            </div>
+            <div class="notification-dropdown" id="notificationDropdown">
+                <div class="notification-header">
+                    <h4>Notifications</h4>
+                    <span class="mark-read" onclick="markAllAsRead()">Mark all as read</span>
+                </div>
+                <div class="notification-list" id="notificationList"></div>
+                <div class="notification-footer">
+                    <button class="view-all-btn" onclick="viewAllNotifications()">View all notifications</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Welcome Message -->
+        <div class="welcome-message">
+            <h2>Welcome back, <span id="employeeName">Valued Employee</span>!</h2>
+        </div>
+
+        <!-- Cards Grid -->
+        <div class="cards-grid">
+            <!-- Task Management Card -->
+            <div class="card card-task">
+                <div class="card-icon">
+                    <i class="fas fa-check-double"></i>
+                </div>
+                <h2 class="card-title">Task Management</h2>
+                <p class="card-description">
+                    Organize, prioritize, and track daily tasks with smart lists. Set deadlines and collaborate in real time.
+                </p>
+                <div class="card-buttons">
+                    <button class="btn btn-payslip" onclick="alert('Payslip feature coming soon!')">
+                        <i class="fas fa-file-invoice-dollar"></i> Payslip
+                    </button>
+                    <button class="btn btn-resources" onclick="alert('HVA Resources feature coming soon!')">
+                        <i class="fas fa-folder-open"></i> HVA Resources
+                    </button>
+                    <button class="btn btn-directory" onclick="openDirectoryModal()">
+                        <i class="fas fa-address-book"></i> Directory
+                    </button>
+                </div>
+            </div>
+
+            <!-- Productivity Tools Card -->
+            <div class="card card-productivity">
+                <div class="card-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h2 class="card-title">Productivity Tools</h2>
+                <p class="card-description">
+                    Access all your essential productivity tools in one place. Quick links to your favorite apps.
+                </p>
+                <div class="apps-grid">
+                    <div class="app-item" onclick="window.open('https://mail.google.com', '_blank')">
+                        <img src="images/mail.png" alt="Gmail" class="app-icon-img" onerror="this.src='https://placehold.co/24x24/DAA520/white?text=G'">
+                        <span>Gmail</span>
+                    </div>
+                    <div class="app-item" onclick="window.open('https://calendar.google.com', '_blank')">
+                        <img src="images/calendar.png" alt="Calendar" class="app-icon-img" onerror="this.src='https://placehold.co/24x24/DAA520/white?text=C'">
+                        <span>Calendar</span>
+                    </div>
+                    <div class="app-item" onclick="window.open('https://meet.google.com', '_blank')">
+                        <img src="images/meet.png" alt="GMeet" class="app-icon-img" onerror="this.src='https://placehold.co/24x24/DAA520/white?text=M'">
+                        <span>GMeet</span>
+                    </div>
+                    <div class="app-item" onclick="window.open('https://chat.google.com', '_blank')">
+                        <img src="images/chat.png" alt="GChat" class="app-icon-img" onerror="this.src='https://placehold.co/24x24/DAA520/white?text=H'">
+                        <span>GChat</span>
+                    </div>
+                    <div class="app-item" onclick="window.open('https://trello.com', '_blank')">
+                        <img src="images/trello.png" alt="Trello" class="app-icon-img" onerror="this.src='https://placehold.co/24x24/DAA520/white?text=T'">
+                        <span>Trello</span>
+                    </div>
+                    <div class="app-item" onclick="window.open('https://www.routific.com', '_blank')">
+                        <img src="images/r.png" alt="Routific" class="app-icon-img" onerror="this.src='https://placehold.co/24x24/DAA520/white?text=R'">
+                        <span>Routific</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SOP Card -->
+            <div class="card card-sop" id="sopCard">
+                <div class="card-icon">
+                    <i class="fas fa-clipboard-list"></i>
+                </div>
+                <h2 class="card-title">Standard Operation Procedure</h2>
+                <p class="card-description">
+                    Maintain versioned SOPs, step-by-step guides, and compliance checklists for operational excellence.
+                </p>
+                <button class="sop-dropdown-btn" onclick="toggleSOPList()">
+                    <i class="fas fa-book"></i>
+                    View SOP Documents (24)
+                    <i class="fas fa-chevron-down" id="sopChevron"></i>
+                </button>
+                <div class="sop-list" id="sopList" style="display: none;"></div>
+            </div>
+
+            <!-- Forms Card -->
+            <div class="card card-forms" id="formsCard">
+                <div class="card-icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <h2 class="card-title">Forms & Templates</h2>
+                <p class="card-description">
+                    Select a category to view available forms.
+                </p>
+                <div class="forms-dropdowns">
+                    <div class="dropdown-container">
+                        <button class="dropdown-btn" onclick="toggleEmployeeForms()">
+                            <i class="fas fa-users"></i>
+                            Employee Forms (5)
+                            <i class="fas fa-chevron-down" id="employeeChevron"></i>
+                        </button>
+                        <div class="dropdown-menu" id="employeeFormsMenu" style="display: none;"></div>
+                    </div>
+                    <div class="dropdown-container">
+                        <button class="dropdown-btn" onclick="toggleOnboardingForms()">
+                            <i class="fas fa-user-plus"></i>
+                            Onboarding Forms (5)
+                            <i class="fas fa-chevron-down" id="onboardingChevron"></i>
+                        </button>
+                        <div class="dropdown-menu" id="onboardingFormsMenu" style="display: none;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="dashboard-footer">
+            <div class="footer-content">
+                <div class="footer-quote">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"Teamwork makes the dream work"</p>
+                    <i class="fas fa-quote-right"></i>
+                </div>
+                <div class="footer-copyright">
+                    <p>&copy; 2026 Enrich Advanced Eye Care. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Logout Button -->
+    <div class="logout-btn-container">
+        <button class="logout-btn" onclick="showLogoutConfirm()">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+    </div>
+
+    <!-- Directory Modal -->
+    <div id="directoryModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-address-book"></i> Company Directory</h3>
+                <button class="modal-close" onclick="closeDirectoryModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="directoryList" class="directory-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PDF Viewer Modal -->
+    <div id="pdfModal" class="pdf-modal-overlay" style="display: none;">
+        <div class="pdf-modal-container">
+            <div class="pdf-modal-header">
+                <h3><i class="fas fa-file-pdf"></i> <span id="pdfTitle"></span></h3>
+                <div class="pdf-modal-actions">
+                    <button class="pdf-download-header-btn" onclick="downloadPDF()">
+                        <i class="fas fa-download"></i>
+                    </button>
+                    <button class="pdf-modal-close" onclick="closePDFModal()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="pdf-viewer">
+                <iframe id="pdfFrame" class="pdf-iframe" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div id="profileModal" class="profile-modal-overlay" style="display: none;">
+        <div class="profile-modal-container">
+            <button class="profile-modal-close" onclick="closeProfileModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="profile-cover">
+                <div class="profile-avatar-container">
+                    <div class="profile-avatar">
+                        <i class="fas fa-user-circle"></i>
+                        <div class="profile-avatar-edit" onclick="editProfile()">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-content">
+                <div id="profileViewMode">
+                    <div class="profile-header-info">
+                        <h2 class="profile-name" id="profileName"></h2>
+                        <p class="profile-role" id="profileRole"></p>
+                        <p class="profile-department" id="profileDepartment"></p>
+                    </div>
+                    <div class="profile-section">
+                        <h3 class="profile-section-title">
+                            <i class="fas fa-user-info"></i>
+                            Personal Information
+                        </h3>
+                        <div class="profile-info-grid" id="profileInfo"></div>
+                    </div>
+                    <div class="profile-action-buttons">
+                        <button class="profile-edit-btn" onclick="editProfile()">
+                            <i class="fas fa-edit"></i> Edit Profile
+                        </button>
+                        <button class="profile-logout-btn" onclick="showLogoutConfirm()">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+                </div>
+                <div id="profileEditMode" style="display: none;">
+                    <div class="profile-header-info">
+                        <h2 class="profile-name">Edit Profile</h2>
+                        <p class="profile-role">Update your information</p>
+                    </div>
+                    <form id="profileEditForm" class="profile-edit-form">
+                        <div class="profile-form-group">
+                            <label>Full Name</label>
+                            <input type="text" id="editName" name="name">
+                        </div>
+                        <div class="profile-form-group">
+                            <label>Email Address</label>
+                            <input type="email" id="editEmail" name="email">
+                        </div>
+                        <div class="profile-form-group">
+                            <label>Role</label>
+                            <input type="text" id="editRole" name="role" readonly>
+                        </div>
+                        <div class="profile-form-group">
+                            <label>Title/Position</label>
+                            <input type="text" id="editDepartment" name="department">
+                        </div>
+                        <div class="profile-form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" id="editPhone" name="phone">
+                        </div>
+                        <div class="profile-edit-actions">
+                            <button type="button" class="profile-cancel-btn" onclick="cancelEdit()">Cancel</button>
+                            <button type="submit" class="profile-save-btn">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logout Confirmation Modal -->
+    <div id="logoutConfirmModal" class="logout-confirm-overlay" style="display: none;">
+        <div class="logout-confirm-modal">
+            <div class="logout-confirm-icon">
+                <i class="fas fa-question-circle"></i>
+            </div>
+            <h3>Confirm Logout</h3>
+            <p>Are you sure you want to logout from your account?</p>
+            <div class="logout-confirm-buttons">
+                <button class="logout-confirm-cancel" onclick="hideLogoutConfirm()">Cancel</button>
+                <button class="logout-confirm-logout" onclick="confirmLogout()">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/profile.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
