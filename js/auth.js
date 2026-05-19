@@ -1,8 +1,12 @@
-// User database
+// User database - All 7 users from admin panel
 const users = [
-    { id: 1, name: "Super Admin", email: "superadmin@enricheye.com", password: "super123", role: "super_admin", department: "IT Management", phone: "+63 912 345 6789" },
-    { id: 2, name: "Admin User", email: "admin@enricheye.com", password: "admin123", role: "admin", department: "Human Resources", phone: "+63 923 456 7890" },
-    { id: 3, name: "Rheina Lei", email: "employee@enricheye.com", password: "demo123", role: "employee", department: "Clinical Services", phone: "+63 934 567 8901" }
+    { id: 1, name: "CJ Johnson", email: "superadmin@enricheye.com", password: "super123", role: "super_admin", title: "CEO/Founder" },
+    { id: 2, name: "Rheinalei Aubrey Beria Co", email: "admin1@enricheye.com", password: "admin123", role: "admin", title: "Clinical Operations Manager" },
+    { id: 3, name: "Liz Maldonado", email: "admin2@enricheye.com", password: "admin123", role: "admin", title: "Human Resources & Payroll Manager" },
+    { id: 4, name: "Mona Kona", email: "employee1@enricheye.com", password: "demo123", role: "employee", title: "Front-end and Field Technician" },
+    { id: 5, name: "Rochelle Cecilio", email: "employee2@enricheye.com", password: "demo123", role: "employee", title: "Part-time Virtual Assistant" },
+    { id: 6, name: "Neradzmar Antuyan", email: "employee3@enricheye.com", password: "demo123", role: "employee", title: "Full-time Virtual Assistant" },
+    { id: 7, name: "Carina Betancourt", email: "employee4@enricheye.com", password: "demo123", role: "employee", title: "Logistics & Patient Support Lead" }
 ];
 
 // Initialize localStorage
@@ -95,6 +99,16 @@ function checkAuth() {
     return user;
 }
 
+// Show/hide admin nav button based on role
+function showAdminNav() {
+    const user = getCurrentUser();
+    const adminBtn = document.getElementById('adminNavBtn');
+    if (adminBtn && user && (user.role === 'admin' || user.role === 'super_admin')) {
+        adminBtn.style.display = 'flex';
+    }
+}
+
 // Initialize
 initStorage();
 checkAuth();
+showAdminNav();
