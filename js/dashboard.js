@@ -13,6 +13,20 @@ function loadDashboard() {
     loadForms();
 }
 
+// ========== NEW FUNCTIONS FOR PAYSLIP AND HVA ==========
+// Open Payslip Spreadsheet
+function openPayslip() {
+    // Replace with your actual Google Spreadsheet link
+    window.open('https://docs.google.com/spreadsheets/d/1mBGFIsOWCLXMlSoyWh0CM0OssApNNgLo/edit?usp=sharing&ouid=116934479822756942787&rtpof=true&sd=true', '_blank');
+}
+
+// Open HVA Resources Spreadsheet
+function openHVAResources() {
+    // Replace with your actual Google Spreadsheet link
+    window.open('https://docs.google.com/spreadsheets/d/1uyNl4UDQSh6kXHAz0IF04-3Wdx1HGJx8/edit?usp=sharing&ouid=102318130636903750418&rtpof=true&sd=true', '_blank');
+}
+// ========== END NEW FUNCTIONS ==========
+
 // SOP Data
 const sopDocuments = {
     "Field": {
